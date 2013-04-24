@@ -32,6 +32,9 @@ fi
 ## clause between {} is called 'anonymous function'
 [ -f $file ] && dbgecho "$file exists" $LINENO || { dbgecho "$file does not exists" $LINENO; exit 1; } 
 
+
+##### Loop #######
+
 zipFile="/root/test.tar.gz"
 if [ -f $zipFile ]; then 
     case $( file $zipFile ) in 
@@ -53,11 +56,30 @@ for i in {1..3}; do
     dbgecho "$i" $LINENO
 done
 
+################################
+## ':' is equivalent to 'true'##
+## while :                     #
+## do                          #
+##     something               #
+## done                        #
+########### equals to: #########
+## while true                  #
+## do                          # 
+##     something               #
+## done                        #
+################################
+
 
 
 
 ##### Snippet #######
 
 ## echo *.txt != echo "*.txt"
+
+dbgecho $(( 2#101010 )) $LINENO
+
+## ',' links a series of math op, last op is returned
+dbgecho $(( 1+2,2+3 )) $LINENO  
+
 
 
