@@ -1,0 +1,63 @@
+#!/bin/bash
+
+###### UTIL ######
+dbgecho() 
+{
+    echo "@line:$2 --- $1"
+}
+
+help()
+{
+    ## we can not put whitespace before EOF
+    cat <<EOF
+    Some snippets of Shell.
+    Sort of useless.
+EOF
+}
+
+
+help
+
+###### TEST FUNCTION ######
+file="/bin/vi"
+
+if [ -f $file ]; then
+    dbgecho "$file exists" $LINENO
+fi
+
+if [ $file = "/bin/vi" ]; then
+    dbgecho "two virables equal" $LINENO
+fi
+
+## clause between {} is called 'anonymous function'
+[ -f $file ] && dbgecho "$file exists" $LINENO || { dbgecho "$file does not exists" $LINENO; exit 1; } 
+
+zipFile="/root/test.tar.gz"
+if [ -f $zipFile ]; then 
+    case $( file $zipFile ) in 
+        *"Zip archive"* )
+            dbgecho "zip archive" $LINENO;;
+        *"gzip compressed"* )
+            dbgecho "gzip archive" $LINENO;;
+        *"bzip2 compressed"* ) 
+            dbgecho "bzip2 archive" $LINENO;;
+        * ) 
+            dbgecho "undef" $LINENO;;
+    esac
+else 
+    dbgecho "$zipFile does not exists" $LINENO
+fi
+
+## {1..3} can be replaced by "1" "2" "3"
+for i in {1..3}; do 
+    dbgecho "$i" $LINENO
+done
+
+
+
+
+##### Snippet #######
+
+## echo *.txt != echo "*.txt"
+
+
