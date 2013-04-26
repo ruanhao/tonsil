@@ -1,5 +1,7 @@
 #! /bin/bash
 
+clear
+
 dbgecho() 
 {
     printf "#%-30s @%-8s --- $1\n" $3 $2
@@ -112,7 +114,11 @@ test_loop()
     ## {1..3} can be replaced by "1" "2" "3"
     for i in {1..3}; do 
     dbgecho "$i" $LINENO $FUNCNAME
-done
+    done
+
+    for (( i=0;i<3;i++ )); do
+        dbgecho "$i" $LINENO $FUNCNAME
+    done
 }
 
 ################################
@@ -158,7 +164,36 @@ test_string()
     dbgecho "replace str all: ${str//l/o}" $LINENO $FUNCNAME  
     dbgecho "replace str from head: ${str/#he/she}" $LINENO $FUNCNAME  
     dbgecho "replace str from end: ${str/%ld/lllllld}" $LINENO $FUNCNAME  
+    dbgecho "default value (unset): ${unset-"hellounset"}" $LINENO $FUNCNAME
+    local nullvar
+    dbgecho "default value (null): ${nullvar:-`whoami`}" $LINENO $FUNCNAME  ## it can be used to check parameter
+                                                                            ## it you want to assign at the same time
+                                                                            ## use '=' or ':=' instead
+    : ${notset:="helloset"}     ## the appearance of ':' is important
+    dbgecho "default value (unset, assigned): $notset" $LINENO $FUNCNAME
 
+    local arr=( "ab" "abcd" "abcde" )
+    dbgecho "length of the array: ${#arr[*]}" $LINENO $FUNCNAME
+    dbgecho "length of the first item of the array: ${#arr}" $LINENO $FUNCNAME
+
+    local var=point
+    local point="in-direct-value"
+    dbgecho "in-direct reference: $( eval echo \$$var )" $LINENO $FUNCNAME
+    dbgecho "in-direct reference: ${!var}" $LINENO $FUNCNAME
+
+    (( likeC=1<3?11:22 ))   ## only apply to algorith
+    dbgecho "like C style: $likeC" $LINENO $FUNCNAME
+
+    ## A comment trick: 
+    ## : "
+    ## This is 
+    ## a multiline
+    ## comments :)
+    ## "
+
+    for a; do   ## by default, the list is #@
+        dbgecho "$a " $LINENO $FUNCNAME
+    done
 
 }
 
