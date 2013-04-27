@@ -29,6 +29,11 @@ test_background_loop()
     for i in "a" "b" "c"; do
         dbgecho "background loop: $i"
     done &
+
+    ##wait      --- let's see the difference between comment or uncomment it
+
+    ## if come across the annoying problem in which you have to type ENTER
+    ## try appending 'wait' command at the end of the script :)
 }
 
 test_brace_redirection() 
@@ -55,6 +60,10 @@ test_brace_redirection()
     done<$file
 
     rm -f $file
+    
+    {
+        dbgecho "hello world"
+    } | tr "l" "k"
 }
 
 help()
