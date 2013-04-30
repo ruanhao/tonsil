@@ -222,11 +222,27 @@ test_string()
 }
 
 
-test_op() {
+test_op() 
+{
     dbgecho "pwd: $PWD"
     op="ls"
     $op > "tmp.txt"
 }
+
+test_ifs() 
+{
+    OIFS="$IFS" ## i think it is necessary to quote $IFS.
+                ## but it is also right not to quote :)
+    IFS=:
+    while read line; do
+        arr=( $line )   ## See $line is like a Micro, 
+                        ## so it can be constructed
+                        ## into an Array
+        dbgecho "${arr[0]} uses ${arr[6]} (shell)"
+    done<"/etc/passwd"
+    IFS="$OIFS"
+}
+
 
 
 ##### Snippet #######
@@ -240,4 +256,5 @@ test_background_loop
 test_boolean_and_parameter "para 1" "para 2"
 test_loop
 test_string "a" "b" "c" "d" "e"
+test_ifs
 ## test_op
