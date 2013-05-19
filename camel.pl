@@ -18,3 +18,20 @@ print $substr, "\n";
 print $b, "\n";
 print $c, "\n";
 
+
+print "=" x 20 . "\n";
+$var = 3;
+{
+    {
+        ($var == 1) && do { print "1111111\n"; last }; ## remember this usage, there is no ';' at 
+                                                       ## the end of 'last', and there is a ':' at 
+                                                       ## the end of '}'
+        ($var == 2) && do { print "2222222\n"; last }; 
+        ($var == 3) && do { print "3333333\n"; $var = 33 }; 
+        print "Inner\n"; 
+    }
+    print "Outter\n";
+}
+print $var;
+
+
