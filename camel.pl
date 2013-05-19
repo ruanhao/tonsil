@@ -27,7 +27,9 @@ $var = 3;
                                                        ## the end of 'last', and there is a ':' at 
                                                        ## the end of '}'
         ($var == 2) && do { print "2222222\n"; last }; 
-        ($var == 3) && do { print "3333333\n"; $var = 33 }; 
+        ($var == 3) && do { print "3333333\n"; $var = 33 }; ## i think 'do' is always statement syntax, not block syntax.
+                                                            ## so we should put a ';' at the end of the statement, even in                                                            ## 'do while' cases where 'while' only acts as condition
+                                                            ## judgement.
         print "Inner\n"; 
     }
     print "Outter\n";
