@@ -135,3 +135,10 @@ print "\@keys: @keys\n";
 while ( ($k, $v) = each %fflint ) {
     print "$k --> $v\n"; 
 }
+
+## it is a good use of hash modification
+@fflint{"name", "fname"} = ("hello", "world");
+foreach ( keys %fflint ) {
+    print "$_ --> $fflint{$_}\n";
+}
+
