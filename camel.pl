@@ -142,3 +142,22 @@ foreach ( keys %fflint ) {
     print "$_ --> $fflint{$_}\n";
 }
 
+###### Regex ################
+$str = "Name:pantani,First Name:Marco,Country:Italy";
+@arr = ( $str =~ /Name:(.*),First Name:(.*),Country:(.*)/ );
+print "\$1 = $1 \$2 = $2 \$3 = $3\n";
+for ($i = 0; $i <= $#arr; $i++) {
+    print "\$arr[$i] = $arr[$i] ";
+}
+print "\n";
+
+$string = "in a galaxy far, far away";
+if ($string =~ /(f.*r)/) {
+    print "\$1 = $1\n";
+}
+if ($string =~ /(f.*?r)/) {
+    print "\$1 = $1\n";
+}
+
+
+####### FileHandle ########
