@@ -21,10 +21,21 @@ use CamelUtil;
 ### The data is denoted by the marker __END__.
 &test_enddata;
 
+### Usually 'print' outputs its argument list sequentially with no space between 
+### elements and without a \n at the end.
+### The behaviour of 'print' can be changed with $, and $\. The $, is the 
+### separator between elements, and $\ specifies the trailing character.
+my $commaOld  = $,;
+my $revSplash = $\;
+$, = "--";
+$\ = "\n";
+&test_print;
+$, = $commaOld;
+$\ = $revSplash;
 
-
-
-
+### Filehandle can be connected to processes. Using filehandles to read the output 
+### of a command is very similar to using back quotes.
+&test_pipe;
 
 
 
@@ -37,6 +48,26 @@ use CamelUtil;
 
 
 ### Inner Function
+
+sub test_pipe {
+    open LS, "ls -l |";
+    while (<LS>) {
+        chomp;
+        &CamelUtil::dbgprint;
+    }
+    close LS;
+
+    open WC, "| wc -l";
+    my @arr = ("a\n", "b\n", "c\n");
+    for (@arr) {
+        print WC;
+    }
+    close WC; ## flush the buffer
+}
+
+sub test_print {
+    print (1, 2, 3);
+}
 
 sub test_enddata {
     my @lines = <DATA>;
@@ -65,4 +96,5 @@ __END__
 hello
 world
 China
-shanghai
+Shanghai
+Changning
