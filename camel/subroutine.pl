@@ -1,26 +1,16 @@
 #! /usr/bin/perl -w
 
-#############################################
-### 1) A subroutine is always a part of some 
-###    expression and, therefore, must return 
-###    a value.
-###    The value returned is either the value 
-###    passed in the return statement or the 
-###    value returned by the last expression 
-###    evaluated in the subroutine.
-### 2) There are two special code blocks in 
-###    Perl that control when a piece of code 
-###    is compiled or executed.
-###    In a BEGIN { ... } block, all commands 
-###    are executed at compile time. 
-###    In a END { ... } block, all commands are 
-###    executed after a subroutine or the main
-###    program is aborted, even if the program 
-###    is terminated by 'die'.
+####################################################################################################
+### 1) A subroutine is always a part of some expression and, therefore, must return 
+###    a value.The value returned is either the value passed in the return statement or the 
+###    value returned by the last expression evaluated in the subroutine.
+### 2) There are two special code blocks in Perl that control when a piece of code 
+###    is compiled or executed. In a BEGIN { ... } block, all commands are executed at compile time. 
+###    In a END { ... } block, all commands are executed after a subroutine or the main
+###    program is aborted, even if the program is terminated by 'die'.
 ###    So, when using Module, a BEGIN block is 
-###    often used: 
-###    BEGIN { unshift @INC, "/some/path/" };
-#############################################
+###    often used: BEGIN { unshift @INC, "/some/path/" };
+####################################################################################################
 
 # use strict;
 use lib ".";
