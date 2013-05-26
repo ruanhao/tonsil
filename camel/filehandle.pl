@@ -7,6 +7,8 @@
 use strict;
 #use lib ".";
 
+#use autodie; #automatically detect I/O errors
+
 use CamelUtil;
 
 ### The actual error detected by Perl can be passed to the 'die' function using 

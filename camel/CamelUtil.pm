@@ -1,5 +1,11 @@
 package CamelUtil;
 
+
+
+## Utilities
+## 1) if set $| = 1, then Perl will flush stdout without buffering.
+
+
 $config = 54321;
 
 sub show_config {

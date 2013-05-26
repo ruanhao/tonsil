@@ -1,26 +1,35 @@
 #! /usr/bin/perl -w
-$" = "--"; ## special variable used as seperator between list elements
-print "hello", "world", "\n";
-## print "hello" + "world" + "\n"; => wrong
-print 100   + 100,   "\n";
-print "100" + "100", "\n";
 
-$a = "hello" .  "world";
-print $a, "\n";
-$b = "i am in Shanghai \n";
-$c = "i am in Shanghai \n";
-substr($b, 8, 8) = "Fujian"; ## i think substr() directly return a (char *)
-                             ## but if the return value is assigned to a scalar variale, 
-                             ## it becomes a real scalar variable.
-$substrC = substr($c, 8, 8);
-$substrC = "China";
-$substr = "Fujian";
-print $substr, "\n";
-print $b, "\n";
-print $c, "\n";
+use lib ".";
+use CamelUtil;
+
+### 1) We can not directly manipulate Array or Hash like chmop((("a ", "b ")[1]));, this will cause an error.
+###    And 'push ("a", "b"), "c";' is also meaningless.
+###    I think Array and Hash are somewhat 'Literal', if you want to operate on them, assign them to a viarable.
+###    Then Perl will memset the viarable that Perl can operate on.
+###    This also makes sense why 'chomp(<STDIN>);' is illegal.
 
 
-print "=" x 20 . "\n";
+
+
+
+
+
+
+&test_substr;
+
+
+## Inner Functions
+
+sub test_substr {
+    my $str = "i am in shanghai";
+    substr($str, 8, 8) = "fujian";
+    &CamelUtil::dbgprint("$str");   ## i think substr() directly return a (char *)
+                                    ## but if the return value is assigned to a scalar variale, 
+                                    ## it becomes a real scalar variable.
+}
+
+
 $var = 3;
 {
     {
@@ -119,44 +128,4 @@ $file = `ls`;
 @file = `ls`;
 print "\$file: $file\n"; 
 print "\@file: @file\n"; 
-
-############# Hash #####################
-%fflint = ("name"  => "flintstone", ## HASH KEYS SHOULD NEVER CONTAIN WHITE SPACE
-           "fname" => "fred", 
-           "job"   => "stonecutter");
-# can also defined as below, but not prefered
-%fflint = ("name", "flintstone", 
-           "fname", "fred", 
-           "job", "stonecutter");
-$numOfFflint = keys %fflint; 
-@keys = keys %fflint; 
-print "\$numOfFflint: $numOfFflint\n"; 
-print "\@keys: @keys\n"; 
-while ( ($k, $v) = each %fflint ) {
-    print "$k --> $v\n"; 
-}
-
-## it is a good use of hash modification
-@fflint{"name", "fname"} = ("hello", "world");
-foreach ( keys %fflint ) {
-    print "$_ --> $fflint{$_}\n";
-}
-
-###### Regex ################
-$str = "Name:pantani,First Name:Marco,Country:Italy";
-@arr = ( $str =~ /Name:(.*),First Name:(.*),Country:(.*)/ );
-print "\$1 = $1 \$2 = $2 \$3 = $3\n";
-for ($i = 0; $i <= $#arr; $i++) {
-    print "\$arr[$i] = $arr[$i] ";
-}
-print "\n";
-
-$string = "in a galaxy far, far away";
-if ($string =~ /(f.*r)/) {
-    print "\$1 = $1\n";
-}
-if ($string =~ /(f.*?r)/) {
-    print "\$1 = $1\n";
-}
-
 
