@@ -1,21 +1,20 @@
 #! /bin/bash
 
-clear
+. util.sh
 
-dbgecho() 
-{
-    ## printf "#%-30s @%-8s --- $1\n" $3 $2
-    ## echo "#$3, @line:$2 --- $1"
-    a=$( caller 0 )
-    OldIFS="$IFS"
-    IFS=" "
-    arr=( $a )
-    IFS="$OldIFS"
-    local line=${arr[0]}
-    local func=${arr[1]}
-    printf "#%-30s @%-8s --- $1\n" $func $line
-
-}
+## dbgecho() 
+## {
+##     ## printf "#%-30s @%-8s --- $1\n" $3 $2
+##     ## echo "#$3, @line:$2 --- $1"
+##     a=$( caller 0 )
+##     OldIFS="$IFS"
+##     IFS=" "
+##     arr=( $a )
+##     IFS="$OldIFS"
+##     local line=${arr[0]}
+##     local func=${arr[1]}
+##     printf "#%-30s @%-8s --- $1\n" $func $line
+## }
 
 test_local()
 {
@@ -41,7 +40,7 @@ test_brace_redirection()
     local l1
     local l2
     local l3
-    local file="/root/braces.txt"
+    local file="$HOME/braces.txt"
     {
         echo "hello"
         echo "world"
@@ -247,14 +246,14 @@ test_ifs()
 
 ##### Snippet #######
 
-## echo *.txt != echo "*.txt"
+## 'echo *.txt' is not the same as 'echo "*.txt"'
 
 test_algorithm
 test_local
 test_brace_redirection
-test_background_loop
-test_boolean_and_parameter "para 1" "para 2"
-test_loop
-test_string "a" "b" "c" "d" "e"
-test_ifs
+## test_background_loop
+## test_boolean_and_parameter "para 1" "para 2"
+## test_loop
+## test_string "a" "b" "c" "d" "e"
+## test_ifs
 ## test_op
