@@ -14,7 +14,7 @@ sub show_config {
 
 sub dbgprint {
     my $string = (defined $_[0]) && $_[0] || $_;
-    my ($_pkg, $fname, $line) = caller;
+    my (undef, $fname, $line) = caller; ## note the use of 'undef'
     printf "\@%-15s #%-3s ======= %s\n", ($fname, $line, $string);
 }
 1;
