@@ -80,12 +80,12 @@ help
 
 test_boolean_and_parameter() 
 {
-    file="/bin/vi"
+    file=`which vi`
     if [ -f "$file" ]; then
         dbgecho "$file exists" 
     fi
 
-    if [ "$file" = "/bin/vi" ]; then
+    if [ "$file" = "/usr/bin/vi" ]; then
         dbgecho "two virables equal" 
     fi
 
@@ -103,7 +103,7 @@ test_boolean_and_parameter()
     local lastArg=${!nArgs}    # ${!#} is prefered :)
     dbgecho "last arg: $lastArg"
 
-    local enter="/root/"
+    local enter="$HOME"
     if cd $enter 2> /dev/null; then
         dbgecho "enter new dir"
         for item in $enter/*; do    ## take a look at the usage: $enter/*
@@ -112,13 +112,11 @@ test_boolean_and_parameter()
     else
         dbgecho "entering dir fails"
     fi
-
-
 }
 
 test_loop() 
 {
-    zipFile="/root/test.tar.gz"
+    zipFile="$HOME/test.tar.gz"
     if [ -f $zipFile ]; then 
         case $( file $zipFile ) in 
             *"Zip archive"* )
@@ -248,12 +246,12 @@ test_ifs()
 
 ## 'echo *.txt' is not the same as 'echo "*.txt"'
 
-test_algorithm
-test_local
-test_brace_redirection
-## test_background_loop
-## test_boolean_and_parameter "para 1" "para 2"
-## test_loop
-## test_string "a" "b" "c" "d" "e"
+#test_algorithm
+#test_local
+#test_brace_redirection
+#test_background_loop
+#test_boolean_and_parameter "para 1" "para 2"
+#test_loop
+#test_string "a" "b" "c" "d" "e"
 ## test_ifs
 ## test_op

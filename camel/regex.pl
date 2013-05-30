@@ -2,6 +2,11 @@
 
 use CamelUtil;
 
+## Special Variables
+## $& Contains the matching part of the whole string
+## $` Contains the left part of the string (before the matching position)
+## $' Contains the right part (after the matching position)
+## $+ Contains the last match in parentheses
 
 &test_split;
 
