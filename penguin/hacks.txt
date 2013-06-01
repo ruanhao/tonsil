@@ -1,8 +1,9 @@
 ## Make Vim look better
-# In Linux
+## In Linux
 export TERM=xterm-256color
-# In Solaris
+## In Solaris
+cd $HOME
+infocmp > xterm-256color.tic.out    # use 'infocmp' to generate xterm-256color.tic.out
+eval `tic $HOME/xterm-256color.tic.out`
 setenv TERM xterm-256color
 setenv TERMINFO $HOME/.terminfo
-eval `tic $HOME/xterm-256color.tic.out` ## use 'infocmp' to generate xterm-256color.tic.out
-                                        ## infocmp > xterm-256color.tic.out 
