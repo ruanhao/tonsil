@@ -1,0 +1,21 @@
+## increase the indentation
+>G # indent to right for current line and afterwards
+>> # indent current line to right
+
+## delete a word
+daw
+
+## add or subtract
+{NUMBER}<C-a> # add {NUMBER} to the number under the cursor
+{NUMBER}<C-x> # subtract {NUMBER} to the number under the cursor
+
+## swap case
+guaw # lowercase current word
+gUaw # uppercase current word
+gUU  # uppercase current line
+guu  # lowercase current line
+
+## output from Register (Insert Mode)
+<C-r>{REGISTER}      # output the content of Register {REGISTER}
+<C-r><C-p>{REGISTER} # output the content of Register {REGISTER} without unintended indentation
+
