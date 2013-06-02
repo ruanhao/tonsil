@@ -1,0 +1,27 @@
+## open files using vimdiff
+vim -d FILE_LEFT FILE_RIGHT
+
+## launch diff mode in EX mode
+:vertical diffsplit FILE
+
+## disable scrollbind
+:set noscrollbind
+
+## go to difference
+]c  # next difference
+[c  # previous difference
+2]c # next next difference
+
+## merge
+dp # diff put
+do # diff get
+
+## manually update vimdiff
+:diffupdate
+
+## set context line number
+:set diffopt=context:3
+
+## folding
+zo # folding open
+zc # floding close

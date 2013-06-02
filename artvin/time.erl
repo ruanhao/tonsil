@@ -1,4 +1,4 @@
--module(user_default).
+-module(time).
 -compile(export_all).
 
 get_epoch() -> 
