@@ -24,4 +24,6 @@ do # diff get
 
 ## folding
 zo # folding open
-zc # floding close
+zc # folding close
+zr # folding reduce
+zm # folding more
