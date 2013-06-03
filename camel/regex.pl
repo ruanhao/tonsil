@@ -16,6 +16,8 @@ use CamelUtil;
 
 &test_greedy;
 
+&read_config;
+
 ## Inner Functions
 
 sub test_split {
@@ -51,3 +53,24 @@ sub test_greedy {
         &CamelUtil::dbgprint("not greedy: \$1 = $1");
     }
 }
+
+sub read_config {
+    our $configEntry = '';
+    my  $pattern     = '(a|c)';
+    while (<DATA>) {
+        if ( /^\s*{\s*$pattern\s*,/ .. /^[^%]*}\./ ) { ## note this usage
+            chomp;
+            $main::configEntry .= $_;
+            if (m/^[^%]*}\s*\./) {    
+                &CamelUtil::dbgprint("configEntry: $main::configEntry");
+                $main::configEntry = '';
+            }    
+        }
+    }    
+}
+ 
+
+__END__
+{a, b}.
+{c,
+d}.
