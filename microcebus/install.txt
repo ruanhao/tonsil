@@ -1,5 +1,5 @@
 ## Enable Python
 make distclean
-./configure --with-features=huge --enable-pythoninterp=yes --prefix=<dir> --with-python-config-dir=<config_file>
+./configure --prefix=<dir> --with-features=huge --enable-pythoninterp --with-python-config-dir=<config_file>
 make 
 make install
