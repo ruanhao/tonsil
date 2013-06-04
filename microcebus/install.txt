@@ -1,3 +1,5 @@
 ## Enable Python
 ./configure --with-features=huge --enable-pythoninterp=yes --prefix=<dir> --with-python-config-dir=<config_file>
-make && make install
+make distclean
+make 
+make install
