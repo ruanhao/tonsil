@@ -1,0 +1,6 @@
+## run 'viw' to visually select the word
+
+## The 'gv' command is a useful little shortcut. It reselects the range of text that
+## was last selected in Visual mode
+
+

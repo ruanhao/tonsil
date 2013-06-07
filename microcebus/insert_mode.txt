@@ -1,0 +1,11 @@
+## Insert Unusual Characters by Character Code
+<C-v>{Character Code} # like <C-v>065; <C-v>u00bf
+## we can also use <C-k>{char1}{char2}, see :h digraphs-default
+
+## If you want to find out the numeric code for any character in your document, 
+## just place the cursor on it and trigger the 'ga' command
+
+
+## output from Register (Insert Mode)
+<C-r>{REGISTER}      # output the content of Register {REGISTER}
+<C-r><C-p>{REGISTER} # output the content of Register {REGISTER} without unintended indentation

@@ -15,7 +15,3 @@ gUaw # uppercase current word
 gUU  # uppercase current line
 guu  # lowercase current line
 
-## output from Register (Insert Mode)
-<C-r>{REGISTER}      # output the content of Register {REGISTER}
-<C-r><C-p>{REGISTER} # output the content of Register {REGISTER} without unintended indentation
-

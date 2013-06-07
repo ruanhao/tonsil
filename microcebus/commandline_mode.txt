@@ -1,0 +1,24 @@
+|Command                                         |Effect
+|------------------------------------------------|-------------------------------------------------------------------------------
+|:[range]delete [x]                              |Delete specified lines [into register x]
+|:[range]yank [x]                                |Yank specified lines [into register x]
+|:[line]put [x]                                  |Put the text from regitster x after the specified line
+|:[range]copy {address}                          |Copy the specified lines to below the line specified by {address}
+|:[range]move {address}                          |Move the specified lines to below the line specified by {address}
+|:[range]join                                    |Join the specified lines
+|:[range]normal {command}                        |Execute Normal mode {commands} on each specified line
+|:[range]substitute/{pattern}/{string}/[flags]   |Replace occurrences of {pattern} with {string} on each specified line
+|:[range]global/{pattern}/[cmd]                  |Execute the Ex command [cmd] on all specified lines where the {pattern} matches
+
+## We can use the . symbol as an address to represent the current line.
+## The % symbol also has a special meaning, it stands for all the lines in the current file
+:%p
+
+## The '< symbol is a mark standing for the first line of the visual selection, while '> stands for the last line of the visual selection 
+
+## Use of offset
+:.,.+3p
+
+## Copy current line to start of the file
+:t0  # t is short for copy, 0 means 'Virtual line above first line of the file'
+## yyp uses register, whereas :t. does not
