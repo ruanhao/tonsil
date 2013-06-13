@@ -22,3 +22,14 @@
 ## Copy current line to start of the file
 :t0  # t is short for copy, 0 means 'Virtual line above first line of the file'
 ## yyp uses register, whereas :t. does not
+
+## At Vim's command line, the <C-r><C-w> mapping copies the word under the cursor and inserts it at the command-line prompt.
+## We can use this to save ourselves a bit of typing.
+
+## Press q: to see the command window
+q/     Open the command-line window with history of searches
+q:     Open the command-line window with history of Ex commands
+ctrl-f Open from command-line mode to the command-line window
+
+## If we place our cursor on certian line and then invoke !G, Vim opens a prompt with the :.,$! set up for us. 
+## We still have to type out the rest of the {filter} command, but it saves a little work.
