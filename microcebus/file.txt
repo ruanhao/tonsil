@@ -1,0 +1,24 @@
+Vim provides several key mappings for resizing windows.
+Keystrokes | Buffer Contents
+-----------|------------------------------------------
+<C-w>=     | Equalize width and height of all windows
+<C-w>_     | Maximize height of the active window
+<C-w>|     | Maximize width of the active window
+[N]<C-w>_  | Set active window height to [N] rows
+[N]<C-w>|  | Set active window width to [N] columns
+
+
+
+The :lcd {path} command lets us set the working directory locally for the
+current window. If we create a new tab page and then use the :lcd command to
+switch to another directory, we can then comfortablely scope each tab page to
+a different project.
+Note that :lcd applies locally to the current window, not to the current tab
+page. If we have a tab page containing two or more split windows, we could set
+the local working directory for all of them by running :windo lcd {path}
+
+Command                 Effect
+:tabe[dit] {filename}   Open {filename} in a new tab
+<C-w>T                  Move the current window into its own tab
+:tabc[lose]             Close the current tab page and all lof its windows
+:tabo[nly]              Keep the active tab page, closing all others
