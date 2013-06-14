@@ -15,3 +15,5 @@ gUaw # uppercase current word
 gUU  # uppercase current line
 guu  # lowercase current line
 
+gqgq # wrap the current line
+gqG  # warp till the end of the file

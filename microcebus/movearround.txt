@@ -22,3 +22,17 @@ ap              Current paragraph plus one blank line
 
 As a general rule, we could say that the d{motion} command tends to work well with aw, as, and ap, whereas the c{motion} command works 
 better with iw and similar.
+
+The <C-o> command is like the back button, while the complementary <C-i>
+command is like the forward button.
+<C-o> and <C-i> commands will always be scoped to the jump list of the active
+window.
+
+Use the g; and g, commands, we can traverse backward and forward through the
+change list.
+
+
+If we leave Insert mode and then scroll around the document, we can quickly
+carry on where we left off by pressing gi
+
+gf -> go to file

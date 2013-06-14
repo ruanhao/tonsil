@@ -1,0 +1,23 @@
+The delete, yank, and put commands all interact with one of Vim's registers.
+We can specify which register we want to use by prefixing the command with
+"{register}. If we don't specify a register, then Vim will use the unnamed
+register.
+In addition to the Normal mode commands, Vim also provides Ex commands for
+delete, yank, and put operations. We could cut the current line into register
+c by running :delete c, and then we could paste it below the current line with
+the :put c command. These may seem verbose in comparison with the Normal mode
+commands, but they are useful in combination with other Ex commands and in Vim
+scripts.
+
+
+The Yank Register ("0)
+When we use the y{motion} command, the specified text is copied not only into
+the unnamed register but also into the yank register, which is addressed by
+the 0 symbol.
+As the name suggests, the yank register is set only when we use the y{motion}
+command. To put it another way: it is not set by the x, s, c{motion}, and
+d{motion} commands. If we yank some text, we can be sure that it will stick
+around in register 0 until we explicitly overwrite it by yanking something
+else. The yank register is reliable, whereas the unnamed register is volatile.
+
+To see what is in register: :reg {register}
