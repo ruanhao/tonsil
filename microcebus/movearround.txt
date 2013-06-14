@@ -1,0 +1,24 @@
+j, k, 0 and $ all interact with real lines, while prefixing any of these with g tells Vim to act on display lines instead.
+
+
+Delimited Text Objects
+Text Object     Selection
+a)              A pair of ()
+i)              Inside of ()
+at              A pair of <xml>tags</xml>
+it              Inside of <xml>tags</xml>
+
+Vim's text objects fall into two categories: those that interact with pairs of delimiters, such as i), i", and it, and 
+those that interact with chunks of text, such as words, sentences, and paragraphs.
+Keystrokes      Buffer Contents
+iw              Current word
+aw              Current word plus one space
+iW              Current WORD
+aW              Current WORD plus one space
+is              Current sentence
+as              Current sentence plus one space
+ip              Current paragraph
+ap              Current paragraph plus one blank line
+
+As a general rule, we could say that the d{motion} command tends to work well with aw, as, and ap, whereas the c{motion} command works 
+better with iw and similar.
