@@ -23,3 +23,16 @@ else. The yank register is reliable, whereas the unnamed register is volatile.
 To see what is in register: :reg {register}
 
 Delete the content of a register: q{register}q  # it is a register macro trick
+
+
+Register    | Contents
+------------|------------------------
+"%          | Name of the current file
+"#          | Name of the alternate file
+".          | Last inserted text
+":          | Last Ex command
+"/          | Last search pattern
+
+
+When we use the p command in Visual mode, Vim repalces the selection with the
+contents of the specified register.
