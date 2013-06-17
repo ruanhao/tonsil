@@ -31,5 +31,5 @@ q/     Open the command-line window with history of searches
 q:     Open the command-line window with history of Ex commands
 ctrl-f Open from command-line mode to the command-line window
 
-## If we place our cursor on certian line and then invoke !G, Vim opens a prompt with the :.,$! set up for us. 
+## If we place our cursor on certain line and then invoke !G, Vim opens a prompt with the :.,$! set up for us. 
 ## We still have to type out the rest of the {filter} command, but it saves a little work.

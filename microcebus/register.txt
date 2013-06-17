@@ -21,3 +21,5 @@ around in register 0 until we explicitly overwrite it by yanking something
 else. The yank register is reliable, whereas the unnamed register is volatile.
 
 To see what is in register: :reg {register}
+
+Delete the content of a register: q{register}q  # it is a register macro trick
