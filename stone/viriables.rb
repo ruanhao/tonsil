@@ -9,3 +9,9 @@
 local_val = 'local value'
 puts "local_val: #{local_val}"
 puts local_variables
+
+
+array = *( 1..10 )
+puts array
+
+## When Array acts as RValue, it is splatted automatically
