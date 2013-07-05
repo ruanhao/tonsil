@@ -6,12 +6,29 @@
 ##     Kernel#instance_variables in the order they were assigned.
 ## (3) Kernel.trace_var(global) accepts a Symbol naming a global variable and a block. Every time
 ##     the named variable is assigned to, the block is called with the new value.
-local_val = 'local value'
-puts "local_val: #{local_val}"
-puts local_variables
-
-
-array = *( 1..10 )
-puts array
 
 ## When Array acts as RValue, it is splatted automatically
+def test_assign
+    a, b, c = *( 1 .. 2 ), 3
+    puts "a: #{a}, b: #{b}, c: #{c}"
+end
+
+class Test
+    @class_var = 'hello world'
+    def self.show_var
+        @class_var
+    end
+
+    def show_class_var
+        puts self.class.show_var
+    end
+end
+
+def test_class_variable
+    instance = Test.new
+    instance.show_class_var
+end
+
+
+test_assign
+test_class_variable
