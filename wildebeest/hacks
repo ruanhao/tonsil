@@ -1,21 +1,25 @@
-
-M-&	        async run shell cmd
-M-:	        run a sentence of Lisp
-M-z	        delete till certain character
-M-h	        mark a paragraph
+M-&             async run shell cmd
+M-:	            run a sentence of Lisp
+M-z	            delete till certain character
+M-h	            mark a paragraph
 C-M-h	        mark a function defination
 C-h C-a         about-emacs info
 C-u M-=	        compute line num, character num and word num for a REGION
 C-u M-! date    insert current date
-M-@ 		continuously mark words
-M-x pinge
+M-@ 		    continuously mark words
+M-x ping
 M-x dig
 M-x ifconfig
-C-h C		check current file encoding
+C-h C           check current file encoding
 C-x <RET> f <coding-system>      setup current buffer encoidng info
 M-c 	        capitalize the word
-M-u		uppercase the word
-M-l 		lowercase the word
-M - M-c		capitalize the word (reverse)
-M - M-u		uppercase the word (reverse)
-M - M-l 	lowercase the word (reverse)	  
+M-u		        uppercase the word
+M-l 		    lowercase the word
+M - M-c		    capitalize the word (reverse)
+M - M-u		    uppercase the word (reverse)
+M - M-l 	    lowercase the word (reverse)
+C-x C-q         toggle Read-Only
+C-x ^           higher current window
+C-x }           wider current window
+C-x -           set current window to a reasonable height
+C-x +           set all windows to an equal size
