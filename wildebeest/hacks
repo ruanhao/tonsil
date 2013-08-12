@@ -1,25 +1,39 @@
-M-&             async run shell cmd
-M-:	            run a sentence of Lisp
+M-&                 async run shell cmd
+M-:	            run a sen3tence of Lisp
 M-z	            delete till certain character
 M-h	            mark a paragraph
-C-M-h	        mark a function defination
-C-h C-a         about-emacs info
-C-u M-=	        compute line num, character num and word num for a REGION
-C-u M-! date    insert current date
+C-M-h	            mark a function defination
+C-h C-a             about-emacs info
+C-u M-=	            compute line num, character num and word num for a REGION
+C-u M-! date        insert current date
 M-@ 		    continuously mark words
 M-x ping
 M-x dig
 M-x ifconfig
-C-h C           check current file encoding
+C-h C               check current file encoding
 C-x <RET> f <coding-system>      setup current buffer encoidng info
-M-c 	        capitalize the word
-M-u		        uppercase the word
+M-c 	            capitalize the word
+M-u		    uppercase the word
 M-l 		    lowercase the word
 M - M-c		    capitalize the word (reverse)
 M - M-u		    uppercase the word (reverse)
 M - M-l 	    lowercase the word (reverse)
-C-x C-q         toggle Read-Only
-C-x ^           higher current window
-C-x }           wider current window
-C-x -           set current window to a reasonable height
-C-x +           set all windows to an equal size
+C-x C-q             toggle Read-Only
+C-x ^               higher current window
+C-x }               wider current window
+C-x -               set current window to a reasonable height
+C-x +               set all windows to an equal size
+
+(setq eval-expression-print-length nil) ;; avoid truncate messages in echo area
+M-x ielm            ;; Interactive Emacs Lisp Mode
+
+C-M-f     Move forward over a balanced expression
+C-M-b     Move backward over a balanced expression
+C-M-k     Kill balanced expression forward
+C-M-SPC   put the mark at the end of the sexp.
+C-M-n     Move forward over a parenthetical group 
+C-M-p     Move backward over a parenthetical group 
+          ;;And put this to .emacs, it will highlight opening/closing parens:
+          (show-paren-mode 1)
+
+
