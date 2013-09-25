@@ -37,3 +37,64 @@ C-M-p     Move backward over a parenthetical group
           (show-paren-mode 1)
 
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;; useful functions ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; (point)
+;; (region-beginning)
+;; (region-end)
+;; (line-beginning-position)
+;; (line-end-position)
+;; (point-min)
+;; (point-max)
+;; 
+;; (goto-char 1)
+;; (forward-char 1)
+;; (backward-char 1)
+;; 
+;; ;; move cursor to the location of "string"
+;; ;; returns the new position
+;; (search-forward "string")		; end of "string"
+;; (search-backward "string")		; beginning of "string"
+;; (re-search-forward "string")
+;; (re-search-backward "string")
+;; ;; move cursor to the first char that's not "a to z"
+;; ;; returns the distance traveled
+;; (skip-chars-forward "a-z")
+;; (skip-chars-backward "a-z")
+;; 
+;; (delete-char 1)
+;; (delete-region start-pos end-pos)
+;; (insert "string")
+;; ;; get string from current buffer
+;; (buffer-substring-no-properties start-pos end-pos)
+;; (capitalize-region start-pos end-pos)
+;; 
+;; (length "string")
+;; (substring "string" start-index end-index)
+;; (replace-regexp-in-string regex replacement str)
+;; 
+;; (buffer-name)
+;; (buffer-file-name)
+;; ;; switch to other buffer
+;; ;; this function does not display the buffer in any window, 
+;; ;; so the user cannot necessarily see the buffer. 
+;; ;; but Lisp programs will now operate on it. 
+;; (set-buffer buffer-name)
+;; (save-buffer)
+;; (kill-buffer buffer-name)
+;; (kill-this-buffer)
+;; ;; temporarily sets a buffer as current to work with
+;; (with-current-buffer buffer-name
+;;   ;; do something here)
+;; 
+;; ;; insert file into current position
+;; (insert-file-contents file-path)
+;; ;; append a text block to file
+;; (append-to-file start-pos end-pos file-path)
+;; ;; get dir path
+;; (file-name-directory full-file-path)
+;; ;; get filename part
+;; (file-name-nondirectory full-file-path)
+;; ;; get filename's suffix
+;; (file-name-extension file-name)
+;; (file-name-sans-extension file-name)
+

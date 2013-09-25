@@ -1,5 +1,0 @@
-
-M-&	async run shell cmd
-M-:	run a sentence of Lisp
-M-z	delete till certain character
-M-h	mark a paragraph
